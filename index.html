@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor Jack</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="jack">
+        <div class="eyes">
+            <div id="eye">
+                <div id="balls"></div>
+            </div>
+            <div id="eye">
+                <div id="balls"></div>
+            </div>
+        </div>
+        <img src="./muzzle.png" alt="jack muzzle" id="muzzle">
+    </div>
+
+    <!-- Script -->
+    <script>
+        const balls = document.querySelectorAll("#balls");
+        document.onmousemove = function () {
+            const x = event.clientX * 100 / window.innerWidth + "%";
+            const y = event.clientY * 100 / window.innerHeight + "%";
+            
+            balls.forEach(ball => {
+                ball.style.left = x;
+                ball.style.top = y;
+                ball.style.transform = "translate(-" + x + ", -" + y + " )";
+            });
+        }
+    </script>
+</body>
+</html>
